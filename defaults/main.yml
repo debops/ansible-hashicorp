@@ -191,7 +191,7 @@ hashicorp__src: '{{ (ansible_local.root.src
                      if (ansible_local|d() and ansible_local.root|d() and
                          ansible_local.root.src|d())
                      else "/usr/local/src") + "/" + hashicorp__user + "/" +
-                     (hashicorp__base_url.split("://")|last | split("/") | first) }}'
+                     (hashicorp__base_url|urlsplit("hostname")) }}'
 
                                                                    # ]]]
 # .. envvar:: hashicorp__lib [[[
